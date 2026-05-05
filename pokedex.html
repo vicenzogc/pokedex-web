@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <input id="pokemonInput" placeholder="Digite o pokemon"></input>
+            <button id="buscar" onclick="fazerRequisicao()">Buscar</button>
+        </div>
+    </header>
+
+    <main>
+        <div id="detalhes">
+            <div id="info-pokemon">
+                <label>ID: </label>
+                <strong id="id"></strong>
+                <br>
+                <label>Name: </label>
+                <strong id="name"></strong>
+            </div>
+
+            <div class="imagem">
+                <img id="sprite" src="" alt="Sprite do Pokémon">
+            </div>
+        </div>
+
+        <div id="cards-container"></div>
+
+    </main>
+
+
+
+    <script src="pokedex.js"></script>
+</body>
+
+</html>
