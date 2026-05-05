@@ -1,7 +1,7 @@
 # Pokédex Web
 
 Este projeto é uma enciclopédia virtual de Pokémon (Pokédex) que consome dados em tempo real da [PokeAPI](https://pokeapi.co/). Projeto solicitado pelo Professor Josino como trabalho avaliativo individual, no Instituto Federal de Pernambuco(IFPE) Campus Jaboatão.
-## 🚀 Funcionalidades
+## Funcionalidades
 
 De acordo com os requisitos do projeto, o sistema permite:
 
@@ -14,7 +14,7 @@ De acordo com os requisitos do projeto, o sistema permite:
 - **Interface Responsiva:** Layout que se adapta perfeitamente a dispositivos móveis e desktops.
 - **Feedback ao Usuário:** Mensagens visuais de "Carregando...", "Erro" ou "Nenhum resultado encontrado".
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 Para garantir um código limpo e focado nos fundamentos, utilizamos:
 
@@ -22,7 +22,7 @@ Para garantir um código limpo e focado nos fundamentos, utilizamos:
 - **CSS3:** Estilização moderna utilizando Flexbox, Grid e variáveis CSS para o tema.
 - **JavaScript (Vanilla):** Lógica de manipulação do DOM, consumo de API assíncrona (`fetch` e `async/await`) e armazenamento local.
 
-## 📂 Estrutura de Arquivos
+## Estrutura de Arquivos
 
 O projeto está organizado da seguinte forma:
 - `index.html`: Estrutura principal e modais.
@@ -30,7 +30,7 @@ O projeto está organizado da seguinte forma:
 - `script.js`: Toda a inteligência da aplicação (chamadas de API e manipulação de dados).
 - `README.md`: Documentação do projeto.
 
-## 🏁 Como Rodar o Projeto
+## Como Rodar o Projeto
 
 Não é necessário instalar nenhuma dependência ou servidor pesado:
 
