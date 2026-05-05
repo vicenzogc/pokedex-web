@@ -1,6 +1,6 @@
-# Pokédex Web 🐾
+# Pokédex Web
 
-Este projeto é uma enciclopédia virtual de Pokémon (Pokédex) que consome dados em tempo real da [PokeAPI](https://pokeapi.co/). Solicitado pelo Professor Josin 
+Este projeto é uma enciclopédia virtual de Pokémon (Pokédex) que consome dados em tempo real da [PokeAPI](https://pokeapi.co/). Projeto solicitado pelo Professor Josino como trabalho avaliativo individual, no Instituto Federal de Pernambuco(IFPE) Campus Jaboatão.
 ## 🚀 Funcionalidades
 
 De acordo com os requisitos do projeto, o sistema permite:
