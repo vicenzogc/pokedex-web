@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
+    <title>Pokédex Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <header>
-        <div>
-            <input id="pokemonInput" placeholder="Digite o pokemon"></input>
-            <button id="buscar" onclick="fazerRequisicao()">Buscar</button>
+        <div class="logo">
+            <h1>Pokédex</h1>
+        </div>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Buscar por nome ou ID...">
+            <button id="searchBtn">Buscar</button>
+            <button id="favoritesBtn">⭐ Mostrar Favoritos</button>
         </div>
     </header>
 
     <main>
-        <div id="detalhes">
-            <div id="info-pokemon">
-                <label>ID: </label>
-                <strong id="id"></strong>
-                <br>
-                <label>Name: </label>
-                <strong id="name"></strong>
-            </div>
+        <!-- Mensagens de Carregando, Erro ou Nenhum Resultado -->
+        <div id="statusMessage" class="status-msg hidden">Carregando...</div>
 
-            <div class="imagem">
-                <img id="sprite" src="" alt="Sprite do Pokémon">
-            </div>
+        <!-- Lista de Pokémons -->
+        <div id="pokedexGrid" class="grid-container"></div>
+
+        <!-- Navegação -->
+        <div id="pagination" class="pagination">
+            <button id="prevBtn" disabled>Página Anterior</button>
+            <button id="nextBtn">Próxima Página</button>
         </div>
-
-        <div id="cards-container"></div>
-
     </main>
 
+    <!-- Modal de Detalhes do Pokémon -->
+    <div id="pokemonModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalName">Nome</h2>
+                <span id="modalId" class="modal-id">#000</span>
+            </div>
+            
+            <img id="modalImg" src="" alt="Imagem do Pokémon">
+            
+            <div class="modal-info">
+                <p><strong>Tipo(s):</strong> <span id="modalTypes"></span></p>
+                <p><strong>Altura:</strong> <span id="modalHeight"></span> m</p>
+                <p><strong>Peso:</strong> <span id="modalWeight"></span> kg</p>
+            </div>
 
+            <button id="modalFavBtn" class="fav-btn">🤍 Favoritar</button>
+        </div>
+    </div>
 
-    <script src="pokedex.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
