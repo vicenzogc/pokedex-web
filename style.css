@@ -1,116 +1,273 @@
-#aumentar {
-    background-color: green;
-}
-
-#diminuir {
-    background-color: red;
+/* Variáveis de cores */
+:root {
+    --primary-color: #ef5350;
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
 }
 
 body {
-    /* background-image: url(https://blog.pensanddolls.com.br/wp-content/uploads/2024/10/capturando-pokemons-raros-os-melhores-colecionaveis-do-universo-pokemon.jpeg); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-#principal {
     margin: 0;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center; /* horizontal */
-
-    flex-direction: row;  /* empilha os elementos */
-    gap: 10px;               /* espaçamento entre eles */
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
 }
 
-.imagem {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-
-
-button, input {
-    padding: 8px;
-    font-size: 16px;
-    height: 28px;
-    border-radius: 5px;
-}
-
-#buscar {
-    width: 100px;
-    height: 50px;
-}
-
-#diminuir, #aumentar {
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-} 
-img {
-    margin-top: 10px;
-    width: 150px;
-    
-}
-
-#info-pokemon {
-    font-size: 20pt;
-    color: white;
-
-
-}
-
-#cards-container {
+/* Cabeçalho e Controles */
+header {
+    background-color: var(--primary-color);
+    padding: 20px 5%;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.controls input, .controls button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.controls input {
+    width: 200px;
+}
+
+.controls button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    background-color: #555;
+}
+
+#favoritesBtn {
+    background-color: #ffca28;
+    color: #333;
+}
+
+#favoritesBtn:hover {
+    background-color: #ffb300;
+}
+
+/* Mensagens de Status */
+.status-msg {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Grid de Pokémons */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    padding: 30px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 10px;
-    width: 150px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
 }
 
 .card img {
     width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 
-.card p {
-    margin: 5px 0;
+.card h3 {
+    text-transform: capitalize;
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+.card .id {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.fav-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #ffca28;
+}
+
+/* Paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: bold;
 }
 
-#detalhes {
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Modal de Detalhes */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    z-index: 1000;
+}
 
-    background-color: rgba(0, 0, 0, 0.2);
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-header h2 {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 1.8rem;
+}
+
+.modal-id {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+#modalImg {
+    width: 150px;
+    height: 150px;
+    margin: 15px 0;
+}
+
+.modal-info {
+    text-align: left;
+    background: var(--bg-color);
     padding: 15px;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
-#detalhes img {
-    width: 120px;
+.modal-info p {
+    margin: 8px 0;
 }
 
-#info-pokemon {
-    font-size: 18pt;
+.type-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    margin-right: 5px;
+    border-radius: 20px;
     color: white;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #888;
 }
 
-#detalhes {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+.fav-btn {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    background: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
+
+.fav-btn.active {
+    background: #ffca28;
+    border-color: #ffca28;
+    color: #333;
+}
+
+/* Cores dinâmicas para os tipos (Exemplos) */
+.grass { background-color: #78C850; }
+.fire { background-color: #F08030; }
+.water { background-color: #6890F0; }
+.bug { background-color: #A8B820; }
+.normal { background-color: #A8A878; }
+.poison { background-color: #A040A0; }
+.electric { background-color: #F8D030; }
+.ground { background-color: #E0C068; }
+.psychic { background-color: #F85888; }
+.rock { background-color: #B8A038; }
+.ghost { background-color: #705898; }
+.dragon { background-color: #7038F8; }
